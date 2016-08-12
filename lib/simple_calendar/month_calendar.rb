@@ -8,6 +8,7 @@ module SimpleCalendar
         current_month = (start_date + number.months)
         starting = current_month.beginning_of_month.beginning_of_week
         ending = current_month.end_of_month.end_of_week
+        ending += 1.week if (starting..ending).count < 42 # makes each month contain same number of weeks
 
         months << (starting..ending).to_a
       end
